@@ -8,7 +8,7 @@ export async function signUp(email: string, password: string, profile?: Partial<
   const uid = cred.user.uid;
   const ts = Date.now();
 
-  // Save profile in Firestore
+
   await setDoc(doc(db, "users", uid), {
     email,
     ...profile,
@@ -16,8 +16,7 @@ export async function signUp(email: string, password: string, profile?: Partial<
     updatedAt: ts,
   });
 
-  // Initialize empty subcollections for wishlists, carts, orders
-  // Option 1: create documents directly
+
   await Promise.all([
     setDoc(doc(db, "wishlists", uid), { items: [] }),
     setDoc(doc(db, "carts", uid), { items: [] }),
