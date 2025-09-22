@@ -1,26 +1,27 @@
+import type { ID, Product } from "@/types";
+import { Ionicons } from "@expo/vector-icons";
+import { useTheme } from "@react-navigation/native";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
-  SafeAreaView,
-  View,
-  Text,
-  Image,
-  StyleSheet,
   ActivityIndicator,
-  ScrollView,
-  TouchableOpacity,
   Alert,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import { useTheme } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
-import type { Product, ID } from "@/types";
-import { getProduct, getAllProducts } from "../services/catalogService";
+import { useAuth } from "../hooks/useAuth";
 import { addToCart } from "../services/cartService";
+import { getAllProducts, getProduct } from "../services/catalogService";
 import {
- addToWishlist, removeFromWishlist,
+  addToWishlist,
   isInWishlist,
+  removeFromWishlist,
 } from "../services/wishlistService";
-import { useAuth } from "../hooks/useAuth"; 
 
 export default function Product() {
   const { id } = useLocalSearchParams<{ id: string }>();

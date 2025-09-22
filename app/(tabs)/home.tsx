@@ -1,20 +1,20 @@
+import type { Product } from "@/types";
+import { useTheme } from "@react-navigation/native";
+import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
-  SafeAreaView,
-  View,
-  Text,
+  ActivityIndicator,
   FlatList,
   Image,
-  ActivityIndicator,
+  SafeAreaView,
+  ScrollView,
   StyleSheet,
+  Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
+  View,
 } from "react-native";
-import { useTheme } from "@react-navigation/native";
-import type { Product, ID } from "@/types";
 import { getAllProducts } from "../services/catalogService";
-import { useRouter } from "expo-router";
 
 const categories = ["All", "Coat", "Suit", "Accessory", "Trouser", "Waistcoat"];
 

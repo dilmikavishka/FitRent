@@ -1,6 +1,6 @@
-import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
-import type { UserProfile, ID } from "@/types";
+import type { ID, UserProfile } from "@/types";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 
 export async function getUserProfile(uid: ID): Promise<UserProfile & { id: ID } | null> {

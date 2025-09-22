@@ -1,6 +1,6 @@
-import { collection, addDoc, updateDoc } from "firebase/firestore";
-import { db } from "../../config/firebaseConfig";
 import { Product } from "@/types";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
+import { db } from "../../config/firebaseConfig";
 
 const now = Date.now();
 

@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "@/config/firebaseConfig";
 import { UserProfile } from "@/types";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 export async function signUp(email: string, password: string, profile?: Partial<UserProfile>) {
   const cred = await createUserWithEmailAndPassword(auth, email, password);

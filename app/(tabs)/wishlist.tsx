@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
+import type { ID, Product } from "@/types";
+import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect, useTheme } from "@react-navigation/native";
+import { router } from "expo-router";
+import React, { useCallback, useState } from "react";
 import {
-  View,
-  Text,
+  ActivityIndicator,
+  Alert,
   FlatList,
   Image,
-  TouchableOpacity,
-  Alert,
-  StyleSheet,
-  ActivityIndicator,
   SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useTheme } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../hooks/useAuth";
-import { getWishlist, removeFromWishlist } from "../services/wishlistService";
 import { getProduct } from "../services/catalogService";
-import type { Product, ID } from "@/types";
+import { getWishlist, removeFromWishlist } from "../services/wishlistService";
 
 export default function WishList() {
   const { colors } = useTheme();
@@ -42,9 +43,14 @@ export default function WishList() {
     }
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetchWishlist();
+  // }, [user?.uid]);
+  useFocusEffect(
+  useCallback(() => {
     fetchWishlist();
-  }, [user?.uid]);
+  }, [user?.uid])
+);
 
   const handleRemove = async (productId: ID) => {
     if (!user?.uid) return;
@@ -88,6 +94,7 @@ export default function WishList() {
           marginTop: 8,
         }}
         renderItem={({ item }) => (
+          <TouchableOpacity  onPress={() => router.push(`/product/${item.id}`)}>
           <View style={[styles.card, { backgroundColor: colors.card }]}>
             {item.images[0] && (
               <Image source={{ uri: item.images[0] }} style={styles.image} />
@@ -102,6 +109,7 @@ export default function WishList() {
               <Ionicons name="trash-outline" size={24} color="red" />
             </TouchableOpacity>
           </View>
+          </TouchableOpacity>
         )}
         ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
         ListFooterComponent={() => (

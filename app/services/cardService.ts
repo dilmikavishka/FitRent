@@ -1,6 +1,6 @@
-import { collection, doc, setDoc, getDoc, getDocs, deleteDoc } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
-import type { UID, Card, ID } from "@/types";
+import type { Card, ID, UID } from "@/types";
+import { collection, deleteDoc, doc, getDocs, setDoc } from "firebase/firestore";
 
 
 export async function saveCard(uid: UID, card: Card) {

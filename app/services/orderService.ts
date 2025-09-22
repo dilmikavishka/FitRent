@@ -1,6 +1,6 @@
-import { collection, doc, setDoc, getDocs } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
-import type { UID, Order, OrderItem, ID, Product } from "@/types";
+import type { ID, Order, OrderItem, Product, UID } from "@/types";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { clearCart } from "./cartService";
 
 function daysBetween(start: number, end: number) {

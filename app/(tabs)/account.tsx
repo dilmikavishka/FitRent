@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Alert,
-  SafeAreaView,
-  Image,
-} from "react-native";
-import { useAuth } from "../hooks/useAuth";
 import {
   getUserProfile,
   upsertUserProfile,
 } from "@/app/services/profileService";
-import { getOrders } from "../services/orderService";
-import { getSavedCards, saveCard, deleteCard } from "../services/cardService";
-import type { UserProfile, Card, ID, Order } from "@/types";
-import { useTheme } from "@react-navigation/native";
+import type { Card, Order, UserProfile } from "@/types";
+import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect, useTheme } from "@react-navigation/native";
+import { BlurView } from "expo-blur";
 import * as ImagePicker from "expo-image-picker";
 import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from "@expo/vector-icons";
-import { Modal } from "react-native";
-import { BlurView } from "expo-blur";
+import React, { useCallback, useState } from "react";
+import {
+  Alert,
+  FlatList,
+  Image,
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { useAuth } from "../hooks/useAuth";
+import { deleteCard, getSavedCards, saveCard } from "../services/cardService";
+import { getOrders } from "../services/orderService";
 
 type Tab = "AccountDetails" | "TrackOrders" | "SavedCards";
 
@@ -39,6 +39,11 @@ export default function AccountPage() {
     email: "",
     phone: "",
     photoURL: "",
+    address: "",
+    city: "",
+    country:"",
+    postalCode:"",
+    province:"",
   });
 
   const [orders, setOrders] = useState<Order[]>([]);
@@ -51,15 +56,44 @@ export default function AccountPage() {
   const [holderName, setHolderName] = useState("");
   const [showAddForm, setShowAddForm] = useState(false);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   if (!user?.uid) return;
+  //   (async () => {
+  //     const data = await getUserProfile(user.uid);
+  //     if (data) setProfile(data);
+  //   })();
+  // }, [user?.uid]);
+
+  // useEffect(() => {
+  //   if (!user?.uid) return;
+  //   (async () => {
+  //     setOrdersLoading(true);
+  //     const data = await getOrders(user.uid);
+  //     setOrders(Object.values(data));
+  //     setOrdersLoading(false);
+  //   })();
+  // }, [user?.uid]);
+
+  // useEffect(() => {
+  //   if (!user?.uid) return;
+  //   (async () => {
+  //     const data = await getSavedCards(user.uid);
+  //     setCards(data);
+  //   })();
+  // }, [user?.uid]);
+  useFocusEffect(
+  useCallback(() => {
     if (!user?.uid) return;
     (async () => {
       const data = await getUserProfile(user.uid);
       if (data) setProfile(data);
     })();
-  }, [user?.uid]);
+  }, [user?.uid])
+);
 
-  useEffect(() => {
+// Orders
+useFocusEffect(
+  useCallback(() => {
     if (!user?.uid) return;
     (async () => {
       setOrdersLoading(true);
@@ -67,15 +101,19 @@ export default function AccountPage() {
       setOrders(Object.values(data));
       setOrdersLoading(false);
     })();
-  }, [user?.uid]);
+  }, [user?.uid])
+);
 
-  useEffect(() => {
+// Saved cards
+useFocusEffect(
+  useCallback(() => {
     if (!user?.uid) return;
     (async () => {
       const data = await getSavedCards(user.uid);
       setCards(data);
     })();
-  }, [user?.uid]);
+  }, [user?.uid])
+);
 
   const handleSaveProfile = async () => {
     if (!user?.uid) return;
@@ -192,7 +230,7 @@ export default function AccountPage() {
             )}
           </TouchableOpacity>
 
-          {["firstName", "lastName", "email", "phone"].map((field) => (
+          {["firstName", "lastName", "email", "phone","province","country","city","address","postal code"].map((field) => (
             <TextInput
               key={field}
               placeholder={field.replace(/([A-Z])/g, " $1").trim()}

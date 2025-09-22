@@ -7,6 +7,7 @@ import { LightTheme, AppDarkTheme } from "@/app/theme";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+
   const [loaded] = useFonts({
     UberMoveMedium: require("../assets/fonts/UberMoveMedium.otf"),
   });

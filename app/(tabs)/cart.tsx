@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
+import type { Card, ID, Product } from "@/types";
+import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect, useTheme } from "@react-navigation/native";
+import React, { useCallback, useState } from "react";
 import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  StyleSheet,
   ActivityIndicator,
+  Alert,
+  Image,
   SafeAreaView,
   ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useTheme } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../hooks/useAuth";
+import { getSavedCards, saveCard } from "../services/cardService";
+import type { CartItem } from "../services/cartService";
 import { getCart, removeFromCart } from "../services/cartService";
 import { getProduct } from "../services/catalogService";
 import { createOrderFromCart } from "../services/orderService";
-import { getSavedCards, saveCard } from "../services/cardService";
-import type { CartItem } from "../services/cartService";
-import type { Product, ID, Card } from "@/types";
 
 export default function Cart() {
   const { colors } = useTheme();
@@ -76,11 +76,12 @@ export default function Cart() {
     }
   };
 
-  useEffect(() => {
+  useFocusEffect(
+  useCallback(() => {
     fetchCart();
     fetchSavedCards();
-  }, [user?.uid]);
-
+  }, [user?.uid])
+);
   const handleRemove = async (productId: ID) => {
     if (!user?.uid) return;
     try {

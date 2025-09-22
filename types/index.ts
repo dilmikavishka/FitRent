@@ -10,6 +10,11 @@ export type UserProfile = {
   email: string;
   createdAt: TimestampMs;
   updatedAt: TimestampMs;
+  address?: string;
+  province?: string;
+  city?: string;
+  postalCode?: string;
+  country?: string;
 };
 
 export type Product = {

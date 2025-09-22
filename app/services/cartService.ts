@@ -1,6 +1,6 @@
-import { doc, setDoc, getDocs, collection, deleteDoc, onSnapshot } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
-import type { UID, ID } from "@/types";
+import type { ID, UID } from "@/types";
+import { collection, deleteDoc, doc, getDocs, onSnapshot, setDoc } from "firebase/firestore";
 
 export type CartItem = {
   productId: ID;

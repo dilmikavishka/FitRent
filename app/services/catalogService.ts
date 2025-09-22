@@ -1,6 +1,6 @@
-import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
-import type { Product, ID } from "@/types";
+import type { ID, Product } from "@/types";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 
 
 export async function getAllProducts(): Promise<Record<ID, Product>> {

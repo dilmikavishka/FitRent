@@ -1,13 +1,13 @@
-import { 
-  doc, 
-  setDoc, 
-  deleteDoc, 
-  getDocs, 
-  collection, 
-  onSnapshot 
-} from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
-import type { UID, ID } from "@/types";
+import type { ID, UID } from "@/types";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  onSnapshot,
+  setDoc
+} from "firebase/firestore";
 
 
 export async function toggleWishlist(uid: UID, productId: ID, liked: boolean) {
