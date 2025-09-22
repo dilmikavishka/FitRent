@@ -1,50 +1,96 @@
-# Welcome to your Expo app 👋
+#   FitRent (Mobile App – Formal Wear Rental Platform)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Project Fitrent** a mobile application for renting men’s and women’s formal wear, offering features
+ like user authentication, profile management, search, wishlist, cart, and rental requests for a
+ smooth user experience.
 
-## Get started
+---
 
-1. Install dependencies
+## 🛠️ Tech Stack
 
-   ```bash
-   npm install
-   ```
+| Layer         | Technology                    |
+|---------------|-------------------------------|
+| Frontend      | React Native, CSS         |
+| Backend       | Firebase                   |
+| Authentication| Firebase Authentication  |
+| Database      | Firebase Firestore                         |
+---
 
-2. Start the app
+## 🚀 Features
 
-   ```bash
-   npx expo start
-   ```
+### 👥 User Features
+- 👤 Create and manage personal profiles with rental history
+- 🔍 Browse and search formal wear by category, size, or type
+- ❤️ Like items and add them to a wishlist or bookmark list
+- 🛒 Add multiple items to a cart before rental confirmation
+- 📦 Rent outfits and track rental status within the app
+- ⭐ Save favorite items for future rentals
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📌Future Roadmap
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- [ ] Add online payment integration
+- [ ] Enable rental duration selection and scheduling
+- [ ] Push notifications for rental updates and reminders
+- [ ] Multi-language support for wider accessibility
+- [ ] Add user reviews and ratings for outfits
+- [ ] Build an admin dashboard for managing inventory
 
-## Get a fresh project
 
-When you're ready, run:
+## 👨‍💻 Author
 
+**Dilmi Kavishka**  
+💻 Full-stack Developer 
+---
+
+
+## 💬 Feedback
+
+Have suggestions or ideas to improve Heladiva? Feel free to open an issue or submit a pull request!
+
+---
+
+## 📺 Demo
+
+Check out a video walkthrough of Project Heladiva on YouTube:  
+[![Watch the video](assets/demo%20images/amd%201%20copy.jpg)](https://youtu.be/wfdxZL9nly8)
+
+## ⚙️ APK and ABB
+
+### 1️⃣ 
+- APK - https://drive.google.com/file/d/1cyyYVgZhtE9MCstiDuZwPgdx5KruhXt2/view?usp=sharing
+- ABB - https://drive.google.com/file/d/1bbRptX8oRIcdyY1RBiBbR-8wdRJOFNt2/view?usp=sharing
+
+---
+
+
+## 📺 ScreenShots
+
+![IMG-20240711-WA0013](assets/demo%20images//IMG_9921.PNG)
+## 
+![IMG-20240711-WA0013](assets/demo%20images//IMG_9923.PNG)
+## 
+![IMG-20240711-WA0013](assets/demo%20images//IMG_9925.PNG)
+## 
+![IMG-20240711-WA0013](assets/demo%20images//IMG_9928.PNG)
+
+
+## ⚙️ Setup & Run Instructions
+
+### 1️⃣ Prerequisites
+- Node.js (>= 18.x)
+- npm or yarn package manager
+- Expo Go app installed on your mobile (Android/iOS)
+- Firebase project setup (Authentication, Firestore Database, Storage)
+
+---
+
+### 2️⃣ Clone the Repository
 ```bash
-npm run reset-project
-```
+git clone https://github.com/your-username/FitRent.git
+cd FitRent
+npm install
+npx expo start -c 
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
