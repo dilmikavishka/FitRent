@@ -88,7 +88,7 @@ Check out a video walkthrough of Project Heladiva on YouTube:
 
 ### 2️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-username/FitRent.git
+git clone https://github.com/dilmikavishka/FitRent.git
 cd FitRent
 npm install
 npx expo start -c 
