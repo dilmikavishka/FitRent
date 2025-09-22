@@ -53,7 +53,7 @@ Have suggestions or ideas to improve Heladiva? Feel free to open an issue or sub
 
 ## 📺 Demo
 
-Check out a video walkthrough of Project Heladiva on YouTube:  
+Check out a video walkthrough of Project Fitrent on YouTube:  
 [![Watch the video](assets/demo%20images/amd%201%20copy.jpg)](https://youtu.be/wfdxZL9nly8)
 
 ## ⚙️ APK and ABB
