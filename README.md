@@ -47,7 +47,7 @@
 
 ## 💬 Feedback
 
-Have suggestions or ideas to improve Heladiva? Feel free to open an issue or submit a pull request!
+Have suggestions or ideas to improve Fitrent? Feel free to open an issue or submit a pull request!
 
 ---
 
